@@ -1,4 +1,4 @@
-package com.turfNest.user.dto;
+package com.turfNest.dao;
 
 import lombok.*;
 

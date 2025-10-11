@@ -1,4 +1,4 @@
-package com.turfNest.user.model;
+package com.turfNest.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -38,4 +38,5 @@ public class User {
 
 
 }
+
 

@@ -1,4 +1,4 @@
-package com.turfNest.user.controller;
+package com.turfNest.controller;
 
 import java.util.Map;
 import java.util.Optional;
@@ -8,10 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import com.turfNest.dao.LoginRequest;
+import com.turfNest.dao.RegisterRequest;
+import com.turfNest.entity.User;
 import com.turfNest.security.JwtUtil;
-import com.turfNest.user.dto.LoginRequest;
-import com.turfNest.user.dto.RegisterRequest;
-import com.turfNest.user.model.User;
 import com.turfNest.user.repository.UserRepository;
 
 @RestController
