@@ -30,7 +30,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
-            return ResponseEntity.badRequest().body("email isalready in use");
+            return ResponseEntity.badRequest().body("email is already in use");
 
         }
         if (!request.getContact().matches("^[6-9]\\d{9}$")) {
