@@ -3,7 +3,9 @@ package com.turfNest.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.turfNest.entity.Owner;
 import com.turfNest.entity.Turff;
+import com.turfNest.user.repository.OwnerRepo;
 import com.turfNest.user.repository.TurfRepository;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class TurfService {
 
     @Autowired
     private TurfRepository turfRepository;
-
+  
     // Get all turfs
     public List<Turff> getAllTurfs() {
         return turfRepository.findAll();
@@ -24,7 +26,7 @@ public class TurfService {
     public Turff addTurf(Turff turf) {
         return turfRepository.save(turf);
     }
-
+    
     // Get a Turf by ID
     public Turff getTurfById(Long id) {
         Optional<Turff> turf = turfRepository.findById(id);
