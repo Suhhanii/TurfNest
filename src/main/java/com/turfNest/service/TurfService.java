@@ -3,8 +3,10 @@ package com.turfNest.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.turfNest.entity.BookedTurf;
 import com.turfNest.entity.Owner;
 import com.turfNest.entity.Turff;
+import com.turfNest.user.repository.BookRepo;
 import com.turfNest.user.repository.OwnerRepo;
 import com.turfNest.user.repository.TurfRepository;
 
@@ -16,7 +18,8 @@ public class TurfService {
 
     @Autowired
     private TurfRepository turfRepository;
-  
+    @Autowired
+    private BookRepo bookrepo;
     // Get all turfs
     public List<Turff> getAllTurfs() {
         return turfRepository.findAll();
@@ -32,7 +35,7 @@ public class TurfService {
         Optional<Turff> turf = turfRepository.findById(id);
         return turf.orElseThrow(() -> new RuntimeException("Turf not found"));
     }
-
+ 
     // Update an existing Turf
     public Turff updateTurf(Long id, Turff turf) {
         if (turfRepository.existsById(id)) {
@@ -51,4 +54,18 @@ public class TurfService {
             throw new RuntimeException("Turf not found for deletion");
         }
     }
+    
+    public BookedTurf addBook(BookedTurf bookedTurf){
+    	return bookrepo.save(bookedTurf);
+    }
+    
+    public List<BookedTurf> getAllBookedTurf()
+    {
+    	return bookrepo.findAll();
+    }
+
+    public List<Turff> searchTurf(String keyword) {
+        return turfRepository.searchTurf(keyword);
+    }
+
 }
